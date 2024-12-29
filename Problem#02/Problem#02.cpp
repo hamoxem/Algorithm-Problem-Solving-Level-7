@@ -1,3 +1,5 @@
+//write a program to fill 3x3 array with random numbers then print the sum of each row
+
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -25,7 +27,7 @@ void PrintMatrix(int arr[3][3], short rows, short cols) {
 
 int RowSUM(int arr[3][3], short rowNumber, short cols) {
     int sum = 0;
-    for (short i = 0; i < cols; i++) { // Fix: Use < instead of <=
+    for (short i = 0; i < cols; i++) {
         sum += arr[rowNumber][i];
     }
     return sum;
@@ -33,7 +35,7 @@ int RowSUM(int arr[3][3], short rowNumber, short cols) {
 
 void PrintEachRowSum(int arr[3][3], short rows, short cols) {
     for (int i = 0; i < rows; i++) {
-        cout << "Row " << i + 1 << " sum = " << RowSUM(arr, i, cols) << endl; // Fix: Remove extra <<
+        cout << "Row " << i + 1 << " sum = " << RowSUM(arr, i, cols) << endl;
     }
 }
 
