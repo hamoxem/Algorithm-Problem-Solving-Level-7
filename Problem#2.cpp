@@ -3,9 +3,7 @@
 using namespace std;
 
 int RandomNumber(int from, int to) {
-    int random;
-    random = rand() % (to - from + 1) + from;
-    return random;
+    return rand() % (to - from + 1) + from;
 }
 
 void FillMatrixWithRandomNumbers(int arr[3][3], short rows, short cols) {
@@ -25,6 +23,20 @@ void PrintMatrix(int arr[3][3], short rows, short cols) {
     }
 }
 
+int RowSUM(int arr[3][3], short rowNumber, short cols) {
+    int sum = 0;
+    for (short i = 0; i < cols; i++) { // Fix: Use < instead of <=
+        sum += arr[rowNumber][i];
+    }
+    return sum;
+}
+
+void PrintEachRowSum(int arr[3][3], short rows, short cols) {
+    for (int i = 0; i < rows; i++) {
+        cout << "Row " << i + 1 << " sum = " << RowSUM(arr, i, cols) << endl; // Fix: Remove extra <<
+    }
+}
+
 int main() {
     srand((unsigned)time(NULL));
 
@@ -32,6 +44,8 @@ int main() {
 
     FillMatrixWithRandomNumbers(arr, 3, 3);
     PrintMatrix(arr, 3, 3);
+
+    PrintEachRowSum(arr, 3, 3);
 
     return 0;
 }
